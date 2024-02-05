@@ -8,7 +8,7 @@ def perform_analysis(df):
     # Get current date and time
     current_datetime = datetime.datetime.now()
     # Format the date and time as a string
-    formatted_datetime = current_datetime.strftime("%m-%d-%Y %H:%M:%S")
+    formatted_datetime = current_datetime.strftime("%m-%d-%Y")
     # gender data
     female_count = float(df[df['Attribute']=='Female']['ICount'])
     female_percentage = str(df[df['Attribute']=='Female']['Percentage']).split()[1]
@@ -63,7 +63,7 @@ def perform_analysis(df):
     no_p_ans_perc = np.round(no_p_ans_count*100/total_count)
     req = {'NYU EEO/Affirmative Action Voluntary Self Identification Form':['-------- GENDER DATA --------','Male', 'Female','Other','No Answer','-------- DIVERSITY DATA --------',
                    minority_1,minority_2,minority_3,minority_4,'-------- DISABILITY DATA --------',dis_str,non_dis_str,'No Answer','-------- VETERAN DATA --------',
-                   p_str,np_str,'No Answer','-------- TOTAL COUNT --------','Total Count','-------- DATE AND TIME --------','Date and Time'],
+                   p_str,np_str,'No Answer','-------- TOTAL COUNT --------','Total Count','-------- DATE --------','Date'],
        'Count':['',male_count,female_count,other_count,no_gender_ans_count,'', min1_count,min2_count,min3_count,min4_count,'',dis_count,ndis_count,no_dis_ans_count,'',p_count,np_count,no_p_ans_count,'',total_count,'',formatted_datetime],
        'Percentage(%)':['',male_percentage,female_percentage,other_percentage,no_gender_ans_perc,'',min1_percentage,min2_percentage,min3_percentage,min4_percentage,'',dis_percentage,ndis_percentage,no_dis_ans_perc,'',p_percentage,np_percentage,no_p_ans_perc,'','','','']}
 
